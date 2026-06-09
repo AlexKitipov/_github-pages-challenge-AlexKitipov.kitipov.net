@@ -33,10 +33,13 @@
 
 ![Описание на снимката](https://github.com/AlexKitipov/_github-pages-challenge-AlexKitipov.kitipov.net/blob/main/Screenshot_28-11-2025_17016_.jpeg)
 ### За мен | About Me
+
 ![Описание на снимката](https://github.com/AlexKitipov/_github-pages-challenge-AlexKitipov.kitipov.net/blob/main/Screenshot_28-11-2025_17148_.jpeg)
 ### Контакти | Contacts
+
 ![Описание на снимката](https://github.com/AlexKitipov/_github-pages-challenge-AlexKitipov.kitipov.net/blob/main/Screenshot_28-11-2025_17355_.jpeg)
 ### имейли, телефон, адрес, платформи
+
 ![Описание на снимката](https://github.com/AlexKitipov/_github-pages-challenge-AlexKitipov.kitipov.net/blob/main/Screenshot_28-11-2025_17523_.jpeg)
 
 Demo template for personal site setup
