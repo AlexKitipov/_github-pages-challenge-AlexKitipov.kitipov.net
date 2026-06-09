@@ -24,7 +24,7 @@ export const skillGroups: readonly SkillGroup[] = [
         category: 'language',
         level: 'practicing',
         summary:
-          'Used to convert page shells into typed reusable data and route-aware components.',
+          'Turns page shells into typed reusable data, route-aware components, and maintainable content structures.',
       },
       {
         name: 'Python learning environment',
@@ -43,7 +43,7 @@ export const skillGroups: readonly SkillGroup[] = [
         name: 'React and Vite',
         category: 'frontend',
         level: 'building',
-        summary: 'Power the modern routed portfolio application.',
+        summary: 'Power the modern routed portfolio application and fast local iteration.',
       },
       {
         name: 'GitHub project publishing',
@@ -62,7 +62,7 @@ export const skillGroups: readonly SkillGroup[] = [
         category: 'collaboration',
         level: 'building',
         summary:
-          'Uses Copilot and Gemini as creative partners for text, code, data, and commentary.',
+          'Uses Copilot and Gemini as creative partners for text, code, data, and commentary while preserving human direction.',
       },
     ],
   },
@@ -83,6 +83,18 @@ export const skillGroups: readonly SkillGroup[] = [
         level: 'learning',
         summary: 'Turns listener participation into material for future episodes.',
       },
+      {
+        name: 'Bilingual content framing',
+        category: 'creative',
+        level: 'practicing',
+        summary:
+          'Blends Bulgarian project identity with concise English explanations for a wider audience.',
+      },
     ],
   },
 ];
+
+export const skillPreviewGroups = skillGroups.map((group) => ({
+  ...group,
+  skills: group.skills.slice(0, 2),
+}));
