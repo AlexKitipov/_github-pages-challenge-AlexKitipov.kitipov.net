@@ -6,6 +6,7 @@ This repository now contains a Vite-powered React TypeScript foundation for the 
 
 - [Vite](https://vite.dev/) for local development and static production builds
 - React with TypeScript for the application layer
+- Optimized SVG visual assets and motion-safe CSS for production performance
 - GitHub Pages-compatible static output through the `dist/` directory
 - Custom domain support through `public/CNAME`
 
@@ -24,7 +25,7 @@ This repository now contains a Vite-powered React TypeScript foundation for the 
 ├── public/
 │   └── CNAME                   # Copied into dist/ during Vite builds
 ├── src/
-│   ├── assets/images/          # App-owned image assets
+│   ├── assets/images/          # Optimized app-owned image assets
 │   ├── styles/globals.css      # Global application styles
 │   ├── App.tsx
 │   ├── main.tsx
@@ -68,7 +69,7 @@ npm run preview
 
 ## 🧪 Code quality scripts
 
-Use these checks before opening feature or content pull requests:
+Use these checks before opening feature or content pull requests. For production polish PRs, also inspect the built `dist/` assets and run Lighthouse against a local preview or the selected hosting provider:
 
 ```bash
 npm run lint
@@ -88,6 +89,13 @@ Available quality scripts:
 - `npm run test:coverage` runs the same checks and writes a lightweight coverage report to `coverage/index.html` plus `coverage/coverage-summary.json`.
 
 `npm run build` also runs `npm run typecheck` before creating the Vite production bundle.
+
+## ⚡ Production performance checklist
+
+- Visual backgrounds should stay in `src/assets/images/` as compressed SVG/WebP/AVIF assets sized for their rendered use. The current abstract background is a 2 KB SVG rather than the previous 1.3 MB raster.
+- Navigation and content spacing include mobile-first fallbacks, horizontal overflow handling for small screens, and safe-area padding for modern mobile browsers.
+- Global transitions are disabled under `prefers-reduced-motion: reduce` so hover polish does not become motion for users who opt out.
+- Before release, run `npm run build`, preview the generated `dist/` output, and target Lighthouse scores of Performance 90+, Accessibility 95+, Best Practices 95+, and SEO 95+ on the chosen hosting provider.
 
 ## 🚢 Deployment
 
@@ -164,7 +172,7 @@ Archived files:
 - `docs/legacy/links.html`
 - `docs/legacy/screenshots/`
 
-The previous `background.png` asset now lives at `src/assets/images/background.png` and is imported by the React app.
+The previous heavy raster background was replaced by `src/assets/images/background.svg`, a lightweight optimized SVG imported through the global stylesheet.
 
 ## 📜 License
 
