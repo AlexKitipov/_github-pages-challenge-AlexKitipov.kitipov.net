@@ -332,3 +332,198 @@ h1 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+.portfolio-page {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  max-width: 1120px;
+  width: min(100%, 1120px);
+}
+
+.portfolio-hero,
+.portfolio-section {
+  backdrop-filter: blur(16px);
+  background: rgba(15, 23, 42, 0.74);
+  border: 1px solid rgba(226, 232, 240, 0.2);
+  border-radius: 1.5rem;
+  box-shadow: 0 24px 80px rgba(2, 6, 23, 0.45);
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.portfolio-hero {
+  align-items: stretch;
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+}
+
+.hero-copy {
+  align-content: center;
+  display: grid;
+  justify-items: start;
+  text-align: left;
+}
+
+.hero-copy .intro {
+  margin-left: 0;
+}
+
+.hero-subtitle {
+  color: #bfdbfe;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 800;
+  margin: -0.75rem 0 1rem;
+}
+
+.bilingual-line {
+  color: #fef3c7 !important;
+  font-weight: 800;
+  margin-top: 0.5rem;
+}
+
+.hero-actions {
+  justify-content: flex-start;
+}
+
+.hero-highlight {
+  background:
+    linear-gradient(145deg, rgba(96, 165, 250, 0.18), rgba(15, 23, 42, 0.6)),
+    rgba(15, 23, 42, 0.62);
+  border: 1px solid rgba(147, 197, 253, 0.26);
+  border-radius: 1.25rem;
+  display: grid;
+  gap: 0.7rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.hero-highlight h2,
+.section-heading h2,
+.contact-cta h2,
+.feature-card h3,
+.skill-preview-grid h3 {
+  color: #ffffff;
+  margin: 0 0 0.65rem;
+}
+
+.hero-highlight p,
+.section-heading p,
+.contact-cta p {
+  color: #dbeafe;
+  margin: 0;
+}
+
+.section-heading {
+  margin: 0 auto 1.5rem;
+  max-width: 760px;
+  text-align: center;
+}
+
+.feature-grid,
+.skill-preview-grid,
+.narrative-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.feature-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.skill-preview-grid,
+.narrative-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-card .text-action {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.inline-action {
+  display: table;
+  margin: 1.5rem auto 0;
+}
+
+.bio-preview,
+.contact-cta {
+  text-align: center;
+}
+
+.contact-cta {
+  display: grid;
+  justify-items: center;
+}
+
+.contact-cta .primary-action {
+  margin-top: 1.25rem;
+}
+
+.about-page .page-card,
+.about-hero {
+  max-width: none;
+  width: 100%;
+}
+
+.about-narrative {
+  display: grid;
+  gap: 1rem;
+}
+
+.narrative-lead {
+  text-align: left;
+}
+
+.narrative-lead .eyebrow {
+  margin-bottom: 0.75rem;
+}
+
+.compact-skill-list p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 860px) {
+  .app-shell {
+    place-items: start center;
+  }
+
+  .portfolio-hero,
+  .feature-grid,
+  .skill-preview-grid,
+  .narrative-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy,
+  .hero-actions {
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-copy .intro {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .app-shell {
+    padding: 9rem 1rem 2rem;
+  }
+
+  .portfolio-hero,
+  .portfolio-section,
+  .page-card {
+    border-radius: 1.1rem;
+  }
+
+  .primary-action,
+  .secondary-action {
+    text-align: center;
+    width: 100%;
+  }
+}

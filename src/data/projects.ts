@@ -8,7 +8,7 @@ export const projects: readonly Project[] = [
     title: 'Portfolio Foundation',
     subtitle: 'A modern React shell for reusable personal content.',
     summary:
-      'The current routed portfolio application that preserves legacy content while preparing for future project, skills, blog, and contact milestones.',
+      'A routed portfolio application that preserves legacy content while preparing professional project, skills, blog, and contact sections.',
     description:
       'Portfolio Foundation introduces typed local data, route-based pages, responsive cards, and safe public contact defaults for the next publishing iterations.',
     status: 'active',
@@ -27,7 +27,35 @@ export const projects: readonly Project[] = [
       },
     ],
   },
+  {
+    id: 'legacy-learning-archive',
+    title: 'Legacy Learning Archive',
+    subtitle: 'Original static pages preserved as the portfolio origin story.',
+    summary:
+      'A historical snapshot of early HTML pages, contact content, and learning links that informs the current bilingual experience.',
+    description:
+      'The archive keeps the original learning material available while the React portfolio extracts durable content into typed project, biography, and skill data.',
+    status: 'archived',
+    tags: ['HTML', 'Learning archive', 'Migration', 'Documentation'],
+    highlights: [
+      'Documents the transition from hand-authored static pages to reusable React views.',
+      'Preserves screenshots and legacy routes for context without exposing private contact details.',
+      'Provides source material for future biography, links, and project milestones.',
+    ],
+    links: [
+      {
+        label: 'Legacy home page',
+        url: '/docs/legacy/index.html',
+        kind: 'archive',
+        isPublic: true,
+      },
+    ],
+  },
 ];
 
 export const featuredProject =
   projects.find((project) => project.featured) ?? projects[0];
+
+export const featuredProjects = projects.filter(
+  (project) => project.featured || project.status === 'active',
+);
