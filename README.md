@@ -37,7 +37,7 @@
 ### Контакти | Contacts
 ![Описание на снимката](https://github.com/AlexKitipov/_github-pages-challenge-AlexKitipov.kitipov.net/blob/main/Screenshot_28-11-2025_17355_.jpeg)
 ### имейли, телефон, адрес, платформи
-![Описание на снимката](Screenshot_28-11-2025_17523_.jpeg
+![Описание на снимката](https://github.com/AlexKitipov/_github-pages-challenge-AlexKitipov.kitipov.net/blob/main/Screenshot_28-11-2025_17523_.jpeg)
 
 Demo template for personal site setup
 Това репо е невалиден демострационен шаблон. Целта му е да покажe структура и файлове за GitHub Pages сайт. Не е предназначено за реална употреба с моите данни.
