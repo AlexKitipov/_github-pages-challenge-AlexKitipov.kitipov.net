@@ -1,4 +1,6 @@
-import { publicContactChannels } from '../data/socialLinks';
+import ContactCard from '../components/portfolio/ContactCard';
+import SocialLinks from '../components/portfolio/SocialLinks';
+import { publicContactChannels, publicSocialLinks } from '../data/socialLinks';
 
 function ContactPage() {
   const primaryEmail = publicContactChannels.find(
@@ -6,33 +8,35 @@ function ContactPage() {
   );
 
   return (
-    <section className="page-card" aria-labelledby="page-title">
+    <section className="page-card contact-page" aria-labelledby="page-title">
       <p className="eyebrow">Contact</p>
       <h1 id="page-title">Contact Aleksandar</h1>
       <p className="intro">
-        Public contact details use safe defaults. Legacy phone numbers and street
-        address data are marked private and are not rendered here.
+        Public contact details use safe defaults. Full street address, phone number, and
+        unconfirmed profile URLs are marked private and are not rendered here.
       </p>
-      <div className="section-stack">
+      <div className="section-stack contact-grid" aria-label="Public contact options">
         {publicContactChannels.map((channel) => (
-          <article className="info-panel" key={`${channel.kind}-${channel.value}`}>
-            <h2>{channel.label}</h2>
-            {channel.href ? (
-              <a href={channel.href}>{channel.value}</a>
-            ) : (
-              <p>{channel.value}</p>
-            )}
-            {channel.note ? <p className="page-note">{channel.note}</p> : null}
-          </article>
+          <ContactCard channel={channel} key={channel.id} />
         ))}
       </div>
       {primaryEmail?.href ? (
         <div className="actions">
-          <a className="primary-action" href={primaryEmail.href}>
+          <a
+            aria-label={
+              primaryEmail.accessibleLabel ?? 'Send an email to Aleksandar Kitipov'
+            }
+            className="primary-action"
+            href={primaryEmail.href}
+          >
             Send email
           </a>
         </div>
       ) : null}
+      <div className="contact-resources" aria-labelledby="contact-links-title">
+        <h2 id="contact-links-title">Public project links</h2>
+        <SocialLinks links={publicSocialLinks.slice(0, 3)} />
+      </div>
     </section>
   );
 }

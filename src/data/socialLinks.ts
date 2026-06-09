@@ -1,15 +1,23 @@
 import type { ContactChannel, SocialLink } from '../types/contact';
 
+const publicEmail = 'aeksandar.kitipov@gmail.com';
+const safeMailto = `mailto:${publicEmail}?subject=${encodeURIComponent(
+  'Portfolio inquiry',
+)}&body=${encodeURIComponent('Hello Aleksandar,\n\n')}`;
+
 export const contactChannels: readonly ContactChannel[] = [
   {
+    id: 'preferred-email',
     label: 'Preferred public email',
-    value: 'aeksandar.kitipov@gmail.com',
-    href: 'mailto:aeksandar.kitipov@gmail.com',
+    value: publicEmail,
+    href: safeMailto,
+    accessibleLabel: `Send an email to Aleksandar Kitipov at ${publicEmail}`,
     kind: 'email',
     visibility: 'public',
-    note: 'Safe default from the legacy site; confirm this remains the preferred publishing email.',
+    note: 'Safe default from the legacy site; reviewer should confirm this remains the final public email.',
   },
   {
+    id: 'outlook-email',
     label: 'Outlook email',
     value: 'aeksandar.kitipov@outlook.com',
     kind: 'email',
@@ -17,6 +25,7 @@ export const contactChannels: readonly ContactChannel[] = [
     note: 'Legacy address retained in data for review but not rendered publicly.',
   },
   {
+    id: 'abv-email',
     label: 'ABV email',
     value: 'aleksandar.kitipov@abv.bg',
     kind: 'email',
@@ -24,6 +33,7 @@ export const contactChannels: readonly ContactChannel[] = [
     note: 'Legacy address retained in data for review but not rendered publicly.',
   },
   {
+    id: 'private-phone',
     label: 'Phone',
     value: 'Private phone number from legacy contacts',
     kind: 'phone',
@@ -31,18 +41,20 @@ export const contactChannels: readonly ContactChannel[] = [
     note: 'Do not render until Aleksandar confirms that a phone number should be public.',
   },
   {
-    label: 'Address',
+    id: 'private-address',
+    label: 'Street address',
     value: 'Private street address from legacy contacts',
     kind: 'location',
     visibility: 'private',
-    note: 'Sensitive street address intentionally excluded from rendering.',
+    note: 'Full street address intentionally excluded from public pages.',
   },
   {
+    id: 'city-location',
     label: 'Location',
     value: 'Plovdiv, Bulgaria',
     kind: 'location',
     visibility: 'public',
-    note: 'City-level location only.',
+    note: 'City-level location only; no full street address is published.',
   },
 ];
 
@@ -67,33 +79,39 @@ export const socialLinks: readonly SocialLink[] = [
       'Cloud notebook connected to the Algorithm of the Day learning workflow.',
   },
   {
-    label: 'Facebook profile name',
-    url: 'https://www.facebook.com/',
-    kind: 'facebook',
-    isPublic: false,
-    description:
-      'Legacy content listed the name “Aleksandar Kitipov”; no profile URL is published until confirmed.',
-  },
-  {
-    label: 'Copilot Microsoft',
-    url: 'https://copilot.microsoft.com',
-    kind: 'tool',
-    isPublic: true,
-    description: 'AI assistant referenced as a collaborator in the legacy pages.',
-  },
-  {
     label: 'GitHub',
     url: 'https://github.com/',
-    kind: 'tool',
+    kind: 'github',
     isPublic: true,
-    description: 'Platform for code and projects.',
+    description: 'Platform for source control, portfolio code, and project publishing.',
+  },
+  {
+    label: 'Python.org',
+    url: 'https://www.python.org/',
+    kind: 'python',
+    isPublic: true,
+    description: 'Official Python language documentation and learning resource.',
   },
   {
     label: 'Google Colab',
     url: 'https://colab.research.google.com/',
     kind: 'tool',
     isPublic: true,
-    description: 'Cloud environment for Python learning.',
+    description: 'Browser-based notebook environment for Python experiments.',
+  },
+  {
+    label: 'Microsoft Copilot',
+    url: 'https://copilot.microsoft.com/',
+    kind: 'ai',
+    isPublic: true,
+    description: 'AI assistant referenced as a collaborator in the legacy pages.',
+  },
+  {
+    label: 'Google Gemini',
+    url: 'https://gemini.google.com/',
+    kind: 'ai',
+    isPublic: true,
+    description: 'AI assistant referenced for learning, writing, and ideation support.',
   },
   {
     label: 'Notepad++',
@@ -103,11 +121,12 @@ export const socialLinks: readonly SocialLink[] = [
     description: 'Editor used in the legacy site origin story.',
   },
   {
-    label: 'Python.org',
-    url: 'https://www.python.org/',
-    kind: 'tool',
-    isPublic: true,
-    description: 'Official Python learning resource.',
+    label: 'Facebook profile name',
+    url: 'https://www.facebook.com/',
+    kind: 'facebook',
+    isPublic: false,
+    description:
+      'Legacy content listed the name “Aleksandar Kitipov”; no profile URL is published until confirmed.',
   },
   {
     label: 'Legacy archive',

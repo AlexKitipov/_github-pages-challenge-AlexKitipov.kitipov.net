@@ -812,3 +812,91 @@ h1 {
     width: 100%;
   }
 }
+
+.skills-page,
+.links-page,
+.contact-page {
+  max-width: 1020px;
+  width: min(100%, 1020px);
+}
+
+.skill-matrix,
+.resource-list,
+.contact-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.skill-group-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skill-group-heading h2 {
+  margin-bottom: 0;
+}
+
+.resource-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.resource-card {
+  background: rgba(15, 23, 42, 0.46);
+  border: 1px solid rgba(226, 232, 240, 0.18);
+  border-radius: 1.1rem;
+  color: #dbeafe;
+  display: grid;
+  gap: 0.45rem;
+  padding: 1rem;
+  text-decoration: none;
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.resource-card:hover,
+.resource-card:focus-visible {
+  background: rgba(96, 165, 250, 0.16);
+  transform: translateY(-1px);
+}
+
+.resource-card strong {
+  color: #ffffff;
+  font-size: 1.05rem;
+}
+
+.resource-card small,
+.contact-card .page-note {
+  color: #bfdbfe;
+  font-weight: 600;
+}
+
+.contact-card {
+  text-align: left;
+}
+
+.contact-resources {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.contact-resources h2 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.social-link-list {
+  max-width: none;
+}
+
+@media (max-width: 860px) {
+  .skill-matrix,
+  .resource-list,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
