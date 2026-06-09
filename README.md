@@ -14,11 +14,6 @@
 
 ## 🖼️ Преглед на страниците
 
-### За мен | About Me
-![About Me](images/about-screenshot.jpeg)
-
-### Контакти | Contacts
-![Contacts](images/contacts-screenshot.jpeg)
 
 ## 🌍 Домейн и хостинг
 
@@ -34,9 +29,14 @@
 
 **Сайтът е лек, ясен и ритмичен — визитка с душа, създадена за споделяне и вдъхновение.**
 
+## 🖼️ Преглед на страниците
+
 ![Описание на снимката](https://github.com/AlexKitipov/_github-pages-challenge-AlexKitipov.kitipov.net/blob/main/Screenshot_28-11-2025_17016_.jpeg)
+### За мен | About Me
 ![Описание на снимката](https://github.com/AlexKitipov/_github-pages-challenge-AlexKitipov.kitipov.net/blob/main/Screenshot_28-11-2025_17148_.jpeg)
+### Контакти | Contacts
 ![Описание на снимката](https://github.com/AlexKitipov/_github-pages-challenge-AlexKitipov.kitipov.net/blob/main/Screenshot_28-11-2025_17355_.jpeg)
+### имейли, телефон, адрес, платформи
 ![Описание на снимката](Screenshot_28-11-2025_17523_.jpeg
 
 Demo template for personal site setup
