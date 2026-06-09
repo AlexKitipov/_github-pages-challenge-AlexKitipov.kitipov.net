@@ -1,32 +1,37 @@
-import { Link } from 'react-router-dom';
+import { useMemo, useState } from 'react';
+import ProjectCard from '../components/portfolio/ProjectCard';
+import ProjectFilters, { type ProjectFilter } from '../components/portfolio/ProjectFilters';
 import { projects } from '../data/projects';
-import { getProjectDetailPath } from '../utils/routes';
 
 function ProjectsPage() {
+  const availableFilters = useMemo<readonly ProjectFilter[]>(() => {
+    const statuses = Array.from(new Set(projects.map((project) => project.status)));
+    return ['all', ...statuses];
+  }, []);
+  const [activeFilter, setActiveFilter] = useState<ProjectFilter>('all');
+
+  const filteredProjects = projects.filter(
+    (project) => activeFilter === 'all' || project.status === activeFilter,
+  );
+
   return (
-    <section className="page-card" aria-labelledby="page-title">
+    <section className="page-card projects-page" aria-labelledby="page-title">
       <p className="eyebrow">Projects</p>
       <h1 id="page-title">Portfolio Projects</h1>
       <p className="intro">
-        Featured applications, experiments, and algorithm practice are now backed by
-        reusable typed project data.
+        Featured applications, experiments, and transparent future placeholders are backed
+        by reusable typed project data.
       </p>
-      <div className="card-grid" aria-label="Project links">
-        {projects.map((project) => (
-          <article className="info-panel" key={project.id}>
-            <p className="status-label">{project.status}</p>
-            <h2>{project.title}</h2>
-            {project.subtitle ? <p>{project.subtitle}</p> : null}
-            <p>{project.summary}</p>
-            <div className="tag-list" aria-label={`${project.title} tags`}>
-              {project.tags.map((tag) => (
-                <span key={tag}>{tag}</span>
-              ))}
-            </div>
-            <Link className="text-action" to={getProjectDetailPath(project.id)}>
-              View project
-            </Link>
-          </article>
+
+      <ProjectFilters
+        activeFilter={activeFilter}
+        filters={availableFilters}
+        onFilterChange={setActiveFilter}
+      />
+
+      <div className="card-grid project-grid" aria-label="Project links">
+        {filteredProjects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
         ))}
       </div>
     </section>

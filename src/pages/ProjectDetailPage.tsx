@@ -1,4 +1,11 @@
 import { Link, useParams } from 'react-router-dom';
+import ProjectHero from '../components/portfolio/ProjectHero';
+import ProjectHighlights from '../components/portfolio/ProjectHighlights';
+import {
+  algorithmOfTheDayCaseStudy,
+  episodeFormat,
+  projectArchiveStructure,
+} from '../data/algorithmOfTheDay';
 import { projects } from '../data/projects';
 import { routes } from '../utils/routes';
 
@@ -21,41 +28,82 @@ function ProjectDetailPage() {
     );
   }
 
-  const publicLinks = project.links.filter((link) => link.isPublic);
+  const isAlgorithmOfTheDay = project.id === 'algorithm-of-the-day';
 
   return (
-    <section className="page-card" aria-labelledby="page-title">
-      <p className="eyebrow">Project detail</p>
-      <h1 id="page-title">{project.title}</h1>
-      <p className="intro">{project.description}</p>
+    <section className="page-card project-detail-page" aria-labelledby="page-title">
+      <ProjectHero project={project} />
 
       <div className="section-stack">
-        <article className="info-panel">
-          <h2>Highlights</h2>
-          <ul>
-            {project.highlights.map((highlight) => (
-              <li key={highlight}>{highlight}</li>
-            ))}
-          </ul>
-          <div className="tag-list" aria-label={`${project.title} tags`}>
-            {project.tags.map((tag) => (
-              <span key={tag}>{tag}</span>
-            ))}
-          </div>
-        </article>
+        <ProjectHighlights project={project} />
 
-        {publicLinks.length > 0 ? (
+        {isAlgorithmOfTheDay ? (
+          <>
+            <article className="info-panel case-study-panel">
+              <h2>Case study</h2>
+              <div className="case-study-grid">
+                <section>
+                  <h3>Overview</h3>
+                  <p>{algorithmOfTheDayCaseStudy.overview}</p>
+                </section>
+                <section>
+                  <h3>Role</h3>
+                  <p>{algorithmOfTheDayCaseStudy.role}</p>
+                </section>
+                <section>
+                  <h3>Audience</h3>
+                  <p>{algorithmOfTheDayCaseStudy.audience}</p>
+                </section>
+                <section>
+                  <h3>Current state</h3>
+                  <p>{algorithmOfTheDayCaseStudy.currentState}</p>
+                </section>
+              </div>
+            </article>
+
+            <article className="info-panel">
+              <h2>Episode format</h2>
+              <ol className="episode-steps">
+                {episodeFormat.map((step) => (
+                  <li key={step.title}>
+                    <strong>{step.title}</strong>
+                    <span>{step.description}</span>
+                  </li>
+                ))}
+              </ol>
+            </article>
+
+            <article className="info-panel case-study-grid two-column-grid">
+              <section>
+                <h2>Planned archive structure</h2>
+                <ul>
+                  {projectArchiveStructure.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </section>
+              <section>
+                <h2>Next steps</h2>
+                <ul>
+                  {algorithmOfTheDayCaseStudy.nextSteps.map((step) => (
+                    <li key={step}>{step}</li>
+                  ))}
+                </ul>
+              </section>
+            </article>
+          </>
+        ) : (
           <article className="info-panel">
-            <h2>Public links</h2>
-            <div className="content-list compact-list">
-              {publicLinks.map((link) => (
-                <a key={link.url} href={link.url} rel="noreferrer" target="_blank">
-                  {link.label}
-                </a>
-              ))}
-            </div>
+            <h2>Project notes</h2>
+            <p>{project.description}</p>
+            {project.placeholder ? (
+              <p>
+                This card is intentionally labeled as a concept so visitors can separate
+                future roadmap ideas from shipped portfolio work.
+              </p>
+            ) : null}
           </article>
-        ) : null}
+        )}
       </div>
 
       <Link className="text-action" to={routes.projects}>

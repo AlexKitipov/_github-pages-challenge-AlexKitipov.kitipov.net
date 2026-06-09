@@ -1,4 +1,4 @@
-export type ProjectStatus = 'featured' | 'active' | 'archived' | 'planned';
+export type ProjectStatus = 'featured' | 'active' | 'in-progress' | 'concept' | 'archived' | 'planned';
 
 export type ProjectLink = {
   label: string;
@@ -15,7 +15,9 @@ export type Project = {
   description: string;
   status: ProjectStatus;
   tags: readonly string[];
+  technologies: readonly string[];
   highlights: readonly string[];
   links: readonly ProjectLink[];
   featured?: boolean;
+  placeholder?: boolean;
 };
