@@ -11,7 +11,7 @@ export const navigationItems: readonly NavigationItem[] = [
   { to: routes.about, label: 'About' },
   { to: routes.projects, label: 'Projects' },
   { to: routes.skills, label: 'Skills' },
-  { to: routes.blog, label: 'Blog' },
+  { to: routes.blog, label: 'Blog / Insights' },
   { to: routes.contact, label: 'Contact' },
   { to: routes.links, label: 'Links' },
 ];

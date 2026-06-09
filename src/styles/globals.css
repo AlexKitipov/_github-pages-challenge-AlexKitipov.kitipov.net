@@ -900,3 +900,145 @@ h1 {
     grid-template-columns: 1fr;
   }
 }
+
+.blog-page {
+  max-width: 1080px;
+  width: min(100%, 1080px);
+}
+
+.blog-category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+  margin: 1.5rem auto 0;
+}
+
+.blog-category-tabs button {
+  align-items: center;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(226, 232, 240, 0.24);
+  border-radius: 999px;
+  color: #dbeafe;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 800;
+  gap: 0.45rem;
+  padding: 0.55rem 0.9rem;
+}
+
+.blog-category-tabs button:hover,
+.blog-category-tabs button:focus-visible,
+.blog-category-tabs button[aria-pressed='true'] {
+  background: rgba(96, 165, 250, 0.22);
+  border-color: rgba(191, 219, 254, 0.44);
+}
+
+.blog-category-tabs span {
+  background: rgba(191, 219, 254, 0.16);
+  border-radius: 999px;
+  color: #ffffff;
+  min-width: 1.5rem;
+  padding: 0.1rem 0.45rem;
+  text-align: center;
+}
+
+.blog-category-stack {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.blog-category-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.blog-category-section .section-heading {
+  margin-bottom: 0;
+}
+
+.blog-grid {
+  margin-top: 0;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.blog-card-header {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: space-between;
+}
+
+.blog-card h3 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.blog-meta {
+  display: grid;
+  gap: 0.55rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+}
+
+.blog-meta div {
+  background: rgba(2, 6, 23, 0.28);
+  border: 1px solid rgba(226, 232, 240, 0.14);
+  border-radius: 0.85rem;
+  padding: 0.7rem;
+}
+
+.blog-meta dt,
+.blog-meta dd {
+  margin: 0;
+}
+
+.blog-meta dt {
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+}
+
+.blog-meta dd,
+.blog-path {
+  color: #dbeafe;
+  font-size: 0.9rem;
+}
+
+.blog-path {
+  background: rgba(96, 165, 250, 0.12);
+  border: 1px solid rgba(147, 197, 253, 0.22);
+  border-radius: 0.85rem;
+  margin: 0;
+  padding: 0.7rem;
+}
+
+.markdown-roadmap {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.markdown-roadmap h2 {
+  color: #ffffff;
+  margin-top: 0;
+}
+
+@media (max-width: 560px) {
+  .blog-meta {
+    grid-template-columns: 1fr;
+  }
+}
