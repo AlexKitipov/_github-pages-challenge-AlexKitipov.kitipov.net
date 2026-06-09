@@ -12,7 +12,8 @@
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
     "test": "node tests/run-tests.mjs",
-    "test:coverage": "node tests/run-tests.mjs --coverage"
+    "test:coverage": "node tests/run-tests.mjs --coverage",
+    "ci:quality": "npm run lint && npm run typecheck && npm run test && npm run build"
   },
   "dependencies": {
     "react": "latest",
