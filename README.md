@@ -36,7 +36,7 @@
 
 ![Описание на снимката](https://github.com/AlexKitipov/_github-pages-challenge-AlexKitipov.kitipov.net/blob/main/Screenshot_28-11-2025_17016_.jpeg)
 ![Описание на снимката](https://github.com/AlexKitipov/_github-pages-challenge-AlexKitipov.kitipov.net/blob/main/Screenshot_28-11-2025_17148_.jpeg)
-![Описание на снимката](Screenshot_28-11-2025_17355_.jpeg)
+![Описание на снимката](https://github.com/AlexKitipov/_github-pages-challenge-AlexKitipov.kitipov.net/blob/main/Screenshot_28-11-2025_17355_.jpeg)
 ![Описание на снимката](Screenshot_28-11-2025_17523_.jpeg
 
 Demo template for personal site setup
