@@ -1,9 +1,12 @@
 import SkillGroup from '../components/portfolio/SkillGroup';
+import Seo from '../components/seo/Seo';
 import { skillGroups } from '../data/skills';
+import { routeSeo } from '../utils/seo';
 
 function SkillsPage() {
   return (
     <section className="page-card skills-page" aria-labelledby="page-title">
+      <Seo {...routeSeo.skills} />
       <p className="eyebrow">Skills</p>
       <h1 id="page-title">Skills Matrix</h1>
       <p className="intro">

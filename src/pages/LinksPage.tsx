@@ -1,9 +1,12 @@
 import ResourceList from '../components/portfolio/ResourceList';
+import Seo from '../components/seo/Seo';
 import { publicSocialLinks } from '../data/socialLinks';
+import { routeSeo } from '../utils/seo';
 
 function LinksPage() {
   return (
     <section className="page-card links-page" aria-labelledby="page-title">
+      <Seo {...routeSeo.links} />
       <p className="eyebrow">Links</p>
       <h1 id="page-title">Curated Links</h1>
       <p className="intro">

@@ -1,6 +1,8 @@
 import ContactCard from '../components/portfolio/ContactCard';
 import SocialLinks from '../components/portfolio/SocialLinks';
+import Seo from '../components/seo/Seo';
 import { publicContactChannels, publicSocialLinks } from '../data/socialLinks';
+import { routeSeo } from '../utils/seo';
 
 function ContactPage() {
   const primaryEmail = publicContactChannels.find(
@@ -9,6 +11,7 @@ function ContactPage() {
 
   return (
     <section className="page-card contact-page" aria-labelledby="page-title">
+      <Seo {...routeSeo.contact} />
       <p className="eyebrow">Contact</p>
       <h1 id="page-title">Contact Aleksandar</h1>
       <p className="intro">

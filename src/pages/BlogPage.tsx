@@ -1,10 +1,12 @@
 import { useMemo, useState } from 'react';
 import BlogCard from '../components/portfolio/BlogCard';
+import Seo from '../components/seo/Seo';
 import BlogCategoryTabs, {
   type BlogCategoryFilter,
 } from '../components/portfolio/BlogCategoryTabs';
 import { blogCategories, blogPosts, markdownSupportNotes } from '../data/blogPosts';
 import type { BlogCategoryId } from '../types/blog';
+import { routeSeo } from '../utils/seo';
 
 function BlogPage() {
   const [activeCategory, setActiveCategory] = useState<BlogCategoryFilter>('all');
@@ -28,6 +30,7 @@ function BlogPage() {
 
   return (
     <section className="page-card blog-page" aria-labelledby="page-title">
+      <Seo {...routeSeo.blog} />
       <p className="eyebrow">Blog / Insights</p>
       <h1 id="page-title">Algorithm Episodes, Notes, and Learning Logs</h1>
       <p className="intro">

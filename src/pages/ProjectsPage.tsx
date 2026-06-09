@@ -1,7 +1,11 @@
 import { useMemo, useState } from 'react';
 import ProjectCard from '../components/portfolio/ProjectCard';
-import ProjectFilters, { type ProjectFilter } from '../components/portfolio/ProjectFilters';
+import Seo from '../components/seo/Seo';
+import ProjectFilters, {
+  type ProjectFilter,
+} from '../components/portfolio/ProjectFilters';
 import { projects } from '../data/projects';
+import { routeSeo } from '../utils/seo';
 
 function ProjectsPage() {
   const availableFilters = useMemo<readonly ProjectFilter[]>(() => {
@@ -16,11 +20,12 @@ function ProjectsPage() {
 
   return (
     <section className="page-card projects-page" aria-labelledby="page-title">
+      <Seo {...routeSeo.projects} />
       <p className="eyebrow">Projects</p>
       <h1 id="page-title">Portfolio Projects</h1>
       <p className="intro">
-        Featured applications, experiments, and transparent future placeholders are backed
-        by reusable typed project data.
+        Featured applications, experiments, and transparent future placeholders are
+        backed by reusable typed project data.
       </p>
 
       <ProjectFilters

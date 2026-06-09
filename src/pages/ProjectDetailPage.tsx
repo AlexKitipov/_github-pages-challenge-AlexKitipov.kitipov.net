@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
+import Seo from '../components/seo/Seo';
 import ProjectHero from '../components/portfolio/ProjectHero';
 import ProjectHighlights from '../components/portfolio/ProjectHighlights';
 import {
@@ -8,6 +9,7 @@ import {
 } from '../data/algorithmOfTheDay';
 import { projects } from '../data/projects';
 import { routes } from '../utils/routes';
+import { getProjectSeo, routeSeo } from '../utils/seo';
 
 function ProjectDetailPage() {
   const { projectId } = useParams();
@@ -16,6 +18,7 @@ function ProjectDetailPage() {
   if (!project) {
     return (
       <section className="page-card" aria-labelledby="page-title">
+        <Seo {...routeSeo.notFound} title="Project Not Found | Aleksandar Kitipov" />
         <p className="eyebrow">Project detail</p>
         <h1 id="page-title">Project not found</h1>
         <p className="intro">
@@ -28,10 +31,12 @@ function ProjectDetailPage() {
     );
   }
 
+  const projectSeo = getProjectSeo(project.id);
   const isAlgorithmOfTheDay = project.id === 'algorithm-of-the-day';
 
   return (
     <section className="page-card project-detail-page" aria-labelledby="page-title">
+      <Seo {...projectSeo} />
       <ProjectHero project={project} />
 
       <div className="section-stack">
