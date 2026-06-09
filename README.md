@@ -55,6 +55,20 @@ Start the local development server:
 npm run dev
 ```
 
+### Windows native binding troubleshooting
+
+This project pins Vite to the latest Vite 7 line instead of using `latest`. Vite 8 switched core development/build internals to Rolldown/Oxc native packages, and the Windows native Rolldown binding can fail to load with errors such as `Cannot find native binding` or `ERR_DLOPEN_FAILED` on some machines.
+
+If you previously installed dependencies while `vite` was set to `latest`, clear the generated install artifacts and reinstall so npm resolves the pinned versions from `package.json`:
+
+```powershell
+Remove-Item -Recurse -Force node_modules, package-lock.json -ErrorAction SilentlyContinue
+npm install
+npm run dev
+```
+
+Use Node.js 20.19+ or newer. The hosted build configurations use Node 22 where a host-specific Node version is required.
+
 Build the static site:
 
 ```bash
