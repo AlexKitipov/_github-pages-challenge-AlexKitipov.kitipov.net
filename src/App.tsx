@@ -1,5 +1,4 @@
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
-import backgroundImage from './assets/images/background.png';
 import { navigationItems } from './data/navigation';
 import AboutPage from './pages/AboutPage';
 import BlogPage from './pages/BlogPage';
@@ -15,12 +14,7 @@ import { routes } from './utils/routes';
 function App() {
   return (
     <BrowserRouter>
-      <main
-        className="app-shell"
-        style={{
-          backgroundImage: `linear-gradient(135deg, rgba(15, 23, 42, 0.88), rgba(30, 64, 175, 0.54)), url(${backgroundImage})`,
-        }}
-      >
+      <main className="app-shell">
         <nav className="top-nav" aria-label="Primary portfolio navigation">
           {navigationItems.map((item) => (
             <NavLink

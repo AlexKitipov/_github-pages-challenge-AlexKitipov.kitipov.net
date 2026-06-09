@@ -20,6 +20,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   min-width: 320px;
@@ -30,14 +34,23 @@ a {
   color: inherit;
 }
 
+:focus-visible {
+  outline: 3px solid #fef3c7;
+  outline-offset: 4px;
+}
+
 .app-shell {
   background-attachment: fixed;
+  background-color: #020617;
+  background-image:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.88), rgba(30, 64, 175, 0.54)),
+    url('../assets/images/background.svg');
   background-position: center;
   background-size: cover;
   display: grid;
   min-height: 100vh;
   place-items: center;
-  padding: 7rem 1.5rem 3rem;
+  padding: clamp(6.5rem, 8vw, 7rem) 1.5rem 3rem;
   position: relative;
   isolation: isolate;
 }
@@ -64,7 +77,9 @@ a {
   gap: 0.75rem;
   justify-content: center;
   left: 0;
-  padding: 0.85rem 1rem;
+  min-height: 4.25rem;
+  padding: 0.85rem max(1rem, env(safe-area-inset-right)) 0.85rem
+    max(1rem, env(safe-area-inset-left));
   position: fixed;
   right: 0;
   top: 0;
@@ -347,6 +362,8 @@ h1 {
   border: 1px solid rgba(226, 232, 240, 0.2);
   border-radius: 1.5rem;
   box-shadow: 0 24px 80px rgba(2, 6, 23, 0.45);
+  content-visibility: auto;
+  contain-intrinsic-size: auto 640px;
   padding: clamp(1.5rem, 4vw, 3rem);
 }
 
@@ -512,7 +529,31 @@ h1 {
 
 @media (max-width: 560px) {
   .app-shell {
-    padding: 9rem 1rem 2rem;
+    background-attachment: scroll;
+    padding: 6.25rem 1rem 2rem;
+  }
+
+  .top-nav {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    min-height: 4rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding-bottom: 0.75rem;
+    padding-top: 0.75rem;
+    scrollbar-width: none;
+    scroll-padding-inline: 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .top-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .top-nav a {
+    flex: 0 0 auto;
+    padding: 0.5rem 0.85rem;
+    white-space: nowrap;
   }
 
   .portfolio-hero,
@@ -1040,5 +1081,64 @@ h1 {
 @media (max-width: 560px) {
   .blog-meta {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .app-shell {
+    padding-inline: 0.75rem;
+  }
+
+  .portfolio-page,
+  .projects-page,
+  .project-detail-page,
+  .skills-page,
+  .links-page,
+  .contact-page,
+  .blog-page {
+    gap: 0.85rem;
+  }
+
+  .portfolio-hero,
+  .portfolio-section,
+  .page-card,
+  .info-panel {
+    padding-inline: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(1.9rem, 12vw, 2.55rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .app-shell {
+    background-attachment: scroll;
+  }
+
+  .top-nav a:hover,
+  .top-nav a:focus-visible,
+  .primary-action:hover,
+  .primary-action:focus-visible,
+  .secondary-action:hover,
+  .secondary-action:focus-visible,
+  .content-list a:hover,
+  .content-list a:focus-visible,
+  .text-action:hover,
+  .text-action:focus-visible,
+  .project-links a:hover,
+  .project-links a:focus-visible,
+  .resource-card:hover,
+  .resource-card:focus-visible {
+    transform: none;
   }
 }
