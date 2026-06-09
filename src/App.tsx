@@ -1,50 +1,52 @@
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import backgroundImage from './assets/images/background.png';
-
-const legacyPages = [
-  { href: 'docs/legacy/about.html', label: 'За мен / About' },
-  { href: 'docs/legacy/contacts.html', label: 'Контакти / Contacts' },
-  { href: 'docs/legacy/links.html', label: 'Линкове / Links' },
-];
+import { navigationItems } from './data/navigation';
+import AboutPage from './pages/AboutPage';
+import BlogPage from './pages/BlogPage';
+import ContactPage from './pages/ContactPage';
+import HomePage from './pages/HomePage';
+import LinksPage from './pages/LinksPage';
+import NotFoundPage from './pages/NotFoundPage';
+import ProjectDetailPage from './pages/ProjectDetailPage';
+import ProjectsPage from './pages/ProjectsPage';
+import SkillsPage from './pages/SkillsPage';
+import { routes } from './utils/routes';
 
 function App() {
   return (
-    <main
-      className="app-shell"
-      style={{
-        backgroundImage: `linear-gradient(135deg, rgba(15, 23, 42, 0.88), rgba(30, 64, 175, 0.54)), url(${backgroundImage})`,
-      }}
-    >
-      <nav className="top-nav" aria-label="Legacy site reference pages">
-        {legacyPages.map((page) => (
-          <a key={page.href} href={page.href}>
-            {page.label}
-          </a>
-        ))}
-      </nav>
+    <BrowserRouter>
+      <main
+        className="app-shell"
+        style={{
+          backgroundImage: `linear-gradient(135deg, rgba(15, 23, 42, 0.88), rgba(30, 64, 175, 0.54)), url(${backgroundImage})`,
+        }}
+      >
+        <nav className="top-nav" aria-label="Primary portfolio navigation">
+          {navigationItems.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              end={item.end}
+              className={({ isActive }) => (isActive ? 'active' : undefined)}
+            >
+              {item.label}
+            </NavLink>
+          ))}
+        </nav>
 
-      <section className="hero-card" aria-labelledby="site-title">
-        <p className="eyebrow">Vite + React + TypeScript foundation</p>
-        <h1 id="site-title">Алгоритъмът на деня | Algorithm of the Day</h1>
-        <p className="intro">
-          Това е новата основа на обучителната уеб страница и лична визитка на
-          Aleksandar Kitipov. Статичната HTML версия е архивирана като справка, докато
-          модерното React приложение се развива стъпка по стъпка.
-        </p>
-        <p className="intro">
-          This first React milestone preserves the original spirit of the site and
-          prepares it for future portfolio sections, contact cards, and learning
-          experiments.
-        </p>
-        <div className="actions">
-          <a className="primary-action" href="mailto:aeksandar.kitipov@gmail.com">
-            Свържи се / Get in touch
-          </a>
-          <a className="secondary-action" href="docs/legacy/index.html">
-            View legacy archive
-          </a>
-        </div>
-      </section>
-    </main>
+        <Routes>
+          <Route path={routes.home} element={<HomePage />} />
+          <Route path={routes.about} element={<AboutPage />} />
+          <Route path={routes.projects} element={<ProjectsPage />} />
+          <Route path={routes.projectDetail} element={<ProjectDetailPage />} />
+          <Route path={routes.skills} element={<SkillsPage />} />
+          <Route path={routes.blog} element={<BlogPage />} />
+          <Route path={routes.contact} element={<ContactPage />} />
+          <Route path={routes.links} element={<LinksPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
   );
 }
 
