@@ -60,6 +60,25 @@ Preview the production build locally:
 npm run preview
 ```
 
+## 🧪 Code quality scripts
+
+Use these checks before opening feature or content pull requests:
+
+```bash
+npm run lint
+npm run format:check
+npm run typecheck
+```
+
+Available quality scripts:
+
+- `npm run lint` runs ESLint across the TypeScript and React source files with baseline rules for correctness, React Hooks, and Fast Refresh-friendly exports.
+- `npm run format:check` verifies that tracked project files match the Prettier configuration without modifying them.
+- `npm run format` applies Prettier formatting when a check reports differences.
+- `npm run typecheck` runs the TypeScript compiler in `--noEmit` mode so type errors are caught before builds.
+
+`npm run build` also runs `npm run typecheck` before creating the Vite production bundle.
+
 ## 🌍 Domain and GitHub Pages notes
 
 - Custom domain: `kitipov.net`

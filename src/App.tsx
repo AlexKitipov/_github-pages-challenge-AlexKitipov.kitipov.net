@@ -27,8 +27,8 @@ function App() {
         <h1 id="site-title">Алгоритъмът на деня | Algorithm of the Day</h1>
         <p className="intro">
           Това е новата основа на обучителната уеб страница и лична визитка на
-          Aleksandar Kitipov. Статичната HTML версия е архивирана като справка,
-          докато модерното React приложение се развива стъпка по стъпка.
+          Aleksandar Kitipov. Статичната HTML версия е архивирана като справка, докато
+          модерното React приложение се развива стъпка по стъпка.
         </p>
         <p className="intro">
           This first React milestone preserves the original spirit of the site and
