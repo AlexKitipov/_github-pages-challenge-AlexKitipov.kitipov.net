@@ -1,29 +1,18 @@
+import SkillGroup from '../components/portfolio/SkillGroup';
 import { skillGroups } from '../data/skills';
 
 function SkillsPage() {
   return (
-    <section className="page-card" aria-labelledby="page-title">
+    <section className="page-card skills-page" aria-labelledby="page-title">
       <p className="eyebrow">Skills</p>
-      <h1 id="page-title">Technical Skills</h1>
+      <h1 id="page-title">Skills Matrix</h1>
       <p className="intro">
-        Languages, tools, workflows, and creative practices extracted from the legacy
-        portfolio into typed data groups.
+        Frontend, programming, tools, AI collaboration, creative direction, and
+        communication skills are grouped into typed portfolio data.
       </p>
-      <div className="section-stack">
+      <div className="section-stack skill-matrix" aria-label="Grouped skills matrix">
         {skillGroups.map((group) => (
-          <article className="info-panel" key={group.title}>
-            <h2>{group.title}</h2>
-            <p>{group.description}</p>
-            <div className="skill-list">
-              {group.skills.map((skill) => (
-                <div key={skill.name}>
-                  <strong>{skill.name}</strong>
-                  <span>{skill.level}</span>
-                  <p>{skill.summary}</p>
-                </div>
-              ))}
-            </div>
-          </article>
+          <SkillGroup group={group} key={group.id} />
         ))}
       </div>
     </section>
