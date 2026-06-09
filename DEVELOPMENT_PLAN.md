@@ -22,20 +22,20 @@ The first production objective should be a polished static portfolio MVP with no
 
 ### 1.1 Current File Inventory
 
-| File | Current purpose | Useful for new portfolio | Recommendation |
-| --- | --- | --- | --- |
-| `index.html` | Static homepage for “Algorithm of the Day” with inline styling, navigation, contact details, and a JavaScript alert button. | Provides title, project concept, bilingual tone, contact references, and original visual style. | Replace with Vite root HTML. Move reusable text into structured data. Remove inline CSS and demo button. |
-| `about.html` | Static about page with biography, role, project philosophy, episode format, archive concept, and links. | Most valuable content source. Contains biography and project narrative. | Reuse and rewrite into professional portfolio sections. Move project details into `projects` or blog/category data. |
-| `contacts.html` | Static contact page with emails, phone, full street address, Facebook, GitHub, Colab, Copilot links. | Contains contact channels and social/project links. | Reuse only approved public channels. Do **not** publish full street address by default. Consider replacing phone with optional contact CTA. |
-| `links.html` | Static links page with project links, emails, Facebook, Copilot, GitHub, Colab, Notepad++, Python. | Useful as social/resource inventory. | Replace with curated `/links` or merge into footer/contact/project sections. Remove unrelated Copilot WhatsApp reference unless intentionally part of brand. |
-| `README.md` | Mixed Bulgarian/English repo description, screenshot embeds, GitHub Pages instructions, and demo-template disclaimers. | Contains domain, purpose, verification token, and current site description. | Rewrite after implementation to describe the actual portfolio, setup, scripts, deployment, and content editing workflow. |
-| `CNAME` | GitHub Pages custom domain: `kitipov.net`. | Required for GitHub Pages custom domain. | Preserve in `public/CNAME` or root deployment output. |
-| `LICENSE` | MIT License, copyright Aleksandar Kitipov 2025. | Useful legal baseline. | Preserve. Consider updating year range if desired. |
-| `background.png` | 1024×1024 PNG background used by all HTML pages. | Could be reused as an initial brand texture or archive asset. | Optimize/compress, rename to semantic path, or replace with modern gradient/illustration. |
-| `Screenshot_28-11-2025_17016_.jpeg` | Screenshot asset referenced by README. | Useful only as “legacy site” documentation. | Move to `docs/legacy/` or remove after redesign. |
-| `Screenshot_28-11-2025_17148_.jpeg` | Screenshot asset referenced by README. | Useful only as “legacy site” documentation. | Move to `docs/legacy/` or remove after redesign. |
-| `Screenshot_28-11-2025_17355_.jpeg` | Screenshot asset referenced by README. | Useful only as “legacy site” documentation. | Move to `docs/legacy/` or remove after redesign. |
-| `Screenshot_28-11-2025_17523_.jpeg` | Screenshot asset referenced by README. | Useful only as “legacy site” documentation. | Move to `docs/legacy/` or remove after redesign. |
+| File                                | Current purpose                                                                                                             | Useful for new portfolio                                                                        | Recommendation                                                                                                                                               |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `index.html`                        | Static homepage for “Algorithm of the Day” with inline styling, navigation, contact details, and a JavaScript alert button. | Provides title, project concept, bilingual tone, contact references, and original visual style. | Replace with Vite root HTML. Move reusable text into structured data. Remove inline CSS and demo button.                                                     |
+| `about.html`                        | Static about page with biography, role, project philosophy, episode format, archive concept, and links.                     | Most valuable content source. Contains biography and project narrative.                         | Reuse and rewrite into professional portfolio sections. Move project details into `projects` or blog/category data.                                          |
+| `contacts.html`                     | Static contact page with emails, phone, full street address, Facebook, GitHub, Colab, Copilot links.                        | Contains contact channels and social/project links.                                             | Reuse only approved public channels. Do **not** publish full street address by default. Consider replacing phone with optional contact CTA.                  |
+| `links.html`                        | Static links page with project links, emails, Facebook, Copilot, GitHub, Colab, Notepad++, Python.                          | Useful as social/resource inventory.                                                            | Replace with curated `/links` or merge into footer/contact/project sections. Remove unrelated Copilot WhatsApp reference unless intentionally part of brand. |
+| `README.md`                         | Mixed Bulgarian/English repo description, screenshot embeds, GitHub Pages instructions, and demo-template disclaimers.      | Contains domain, purpose, verification token, and current site description.                     | Rewrite after implementation to describe the actual portfolio, setup, scripts, deployment, and content editing workflow.                                     |
+| `CNAME`                             | GitHub Pages custom domain: `kitipov.net`.                                                                                  | Required for GitHub Pages custom domain.                                                        | Preserve in `public/CNAME` or root deployment output.                                                                                                        |
+| `LICENSE`                           | MIT License, copyright Aleksandar Kitipov 2025.                                                                             | Useful legal baseline.                                                                          | Preserve. Consider updating year range if desired.                                                                                                           |
+| `background.png`                    | 1024×1024 PNG background used by all HTML pages.                                                                            | Could be reused as an initial brand texture or archive asset.                                   | Optimize/compress, rename to semantic path, or replace with modern gradient/illustration.                                                                    |
+| `Screenshot_28-11-2025_17016_.jpeg` | Screenshot asset referenced by README.                                                                                      | Useful only as “legacy site” documentation.                                                     | Move to `docs/legacy/` or remove after redesign.                                                                                                             |
+| `Screenshot_28-11-2025_17148_.jpeg` | Screenshot asset referenced by README.                                                                                      | Useful only as “legacy site” documentation.                                                     | Move to `docs/legacy/` or remove after redesign.                                                                                                             |
+| `Screenshot_28-11-2025_17355_.jpeg` | Screenshot asset referenced by README.                                                                                      | Useful only as “legacy site” documentation.                                                     | Move to `docs/legacy/` or remove after redesign.                                                                                                             |
+| `Screenshot_28-11-2025_17523_.jpeg` | Screenshot asset referenced by README.                                                                                      | Useful only as “legacy site” documentation.                                                     | Move to `docs/legacy/` or remove after redesign.                                                                                                             |
 
 ### 1.2 Existing Structure Assessment
 
@@ -143,19 +143,19 @@ Content to replace or remove:
 
 Confirmed stack:
 
-| Area | Recommendation | Reason |
-| --- | --- | --- |
-| Framework | React | Excellent component ecosystem and portfolio maintainability. |
-| Language | TypeScript | Safer content models, props, routing data, and utility functions. |
-| Build tool | Vite | Fast local development and static build output. |
-| Styling | Tailwind CSS | Fast responsive design with consistent tokens. |
-| Routing | React Router | Supports static portfolio routes and future detail pages. |
-| Icons | `lucide-react` or `react-icons` | Lightweight visual system. Prefer `lucide-react` for consistency. |
-| Animation | Framer Motion or CSS-only | Use CSS/Tailwind first; add Framer Motion only where it adds value. |
-| Testing | Vitest + React Testing Library | Native Vite-compatible testing. |
-| Linting | ESLint | TypeScript/React quality rules. |
-| Formatting | Prettier | Consistent code style. |
-| Deployment | Static hosting | Works on GitHub Pages, Render, Vercel, Netlify. |
+| Area       | Recommendation                  | Reason                                                              |
+| ---------- | ------------------------------- | ------------------------------------------------------------------- |
+| Framework  | React                           | Excellent component ecosystem and portfolio maintainability.        |
+| Language   | TypeScript                      | Safer content models, props, routing data, and utility functions.   |
+| Build tool | Vite                            | Fast local development and static build output.                     |
+| Styling    | Tailwind CSS                    | Fast responsive design with consistent tokens.                      |
+| Routing    | React Router                    | Supports static portfolio routes and future detail pages.           |
+| Icons      | `lucide-react` or `react-icons` | Lightweight visual system. Prefer `lucide-react` for consistency.   |
+| Animation  | Framer Motion or CSS-only       | Use CSS/Tailwind first; add Framer Motion only where it adds value. |
+| Testing    | Vitest + React Testing Library  | Native Vite-compatible testing.                                     |
+| Linting    | ESLint                          | TypeScript/React quality rules.                                     |
+| Formatting | Prettier                        | Consistent code style.                                              |
+| Deployment | Static hosting                  | Works on GitHub Pages, Render, Vercel, Netlify.                     |
 
 Adjustment from original proposal:
 
@@ -266,17 +266,17 @@ Adjustment from original proposal:
 
 ### 2.3 Routing Structure
 
-| Route | Page component | Purpose |
-| --- | --- | --- |
-| `/` | `HomePage` | Hero, positioning statement, featured project, featured skills, CTA. |
-| `/about` | `AboutPage` | Biography, journey, philosophy, language background, collaboration style. |
-| `/projects` | `ProjectsPage` | Filterable project grid. |
-| `/projects/:slug` | `ProjectDetailPage` | Detail view for Algorithm of the Day and future projects. |
-| `/skills` | `SkillsPage` | Technical, creative, communication, and tooling skills. |
-| `/blog` | `BlogPage` | Insights, Algorithm of the Day episodes, notes. Initial version can be static placeholders. |
-| `/contact` | `ContactPage` | Safe public contact methods and social links. |
-| `/links` | `LinksPage` | Curated external links, project resources, GitHub/Colab. |
-| `*` | `NotFoundPage` | Friendly 404 page with navigation back to key sections. |
+| Route             | Page component      | Purpose                                                                                     |
+| ----------------- | ------------------- | ------------------------------------------------------------------------------------------- |
+| `/`               | `HomePage`          | Hero, positioning statement, featured project, featured skills, CTA.                        |
+| `/about`          | `AboutPage`         | Biography, journey, philosophy, language background, collaboration style.                   |
+| `/projects`       | `ProjectsPage`      | Filterable project grid.                                                                    |
+| `/projects/:slug` | `ProjectDetailPage` | Detail view for Algorithm of the Day and future projects.                                   |
+| `/skills`         | `SkillsPage`        | Technical, creative, communication, and tooling skills.                                     |
+| `/blog`           | `BlogPage`          | Insights, Algorithm of the Day episodes, notes. Initial version can be static placeholders. |
+| `/contact`        | `ContactPage`       | Safe public contact methods and social links.                                               |
+| `/links`          | `LinksPage`         | Curated external links, project resources, GitHub/Colab.                                    |
+| `*`               | `NotFoundPage`      | Friendly 404 page with navigation back to key sections.                                     |
 
 GitHub Pages SPA note:
 
@@ -339,7 +339,14 @@ Social link model:
 export interface SocialLink {
   label: string;
   href: string;
-  platform: 'github' | 'facebook' | 'email' | 'colab' | 'website' | 'linkedin' | 'other';
+  platform:
+    | 'github'
+    | 'facebook'
+    | 'email'
+    | 'colab'
+    | 'website'
+    | 'linkedin'
+    | 'other';
   public: boolean;
 }
 ```
@@ -1302,8 +1309,8 @@ PRs:
 6. Implement Home and About pages.
 7. Implement Projects and Algorithm of the Day detail.
 8. Implement Skills, Links, and Contact pages.
-10. Add SEO metadata and static discovery files.
-12. Add deployment workflows.
+9. Add SEO metadata and static discovery files.
+10. Add deployment workflows.
 
 Deliverables:
 
@@ -1321,8 +1328,8 @@ Goal: Add richer content, tests, accessibility coverage, and polish.
 PRs:
 
 9. Add blog/insights foundation.
-11. Add testing and accessibility coverage.
-13. Optimize performance and polish production portfolio.
+10. Add testing and accessibility coverage.
+11. Optimize performance and polish production portfolio.
 
 Deliverables:
 
