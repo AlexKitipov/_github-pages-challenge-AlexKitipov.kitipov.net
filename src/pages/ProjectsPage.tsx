@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { projects } from '../data/projects';
 import { getProjectDetailPath } from '../utils/routes';
 
 function ProjectsPage() {
@@ -7,12 +8,26 @@ function ProjectsPage() {
       <p className="eyebrow">Projects</p>
       <h1 id="page-title">Portfolio Projects</h1>
       <p className="intro">
-        A routed project index shell for featured applications, experiments, and
-        algorithm practice.
+        Featured applications, experiments, and algorithm practice are now backed by
+        reusable typed project data.
       </p>
-      <div className="content-list" aria-label="Sample project links">
-        <Link to={getProjectDetailPath('algorithm-of-the-day')}>Algorithm of the Day</Link>
-        <Link to={getProjectDetailPath('portfolio-foundation')}>Portfolio Foundation</Link>
+      <div className="card-grid" aria-label="Project links">
+        {projects.map((project) => (
+          <article className="info-panel" key={project.id}>
+            <p className="status-label">{project.status}</p>
+            <h2>{project.title}</h2>
+            {project.subtitle ? <p>{project.subtitle}</p> : null}
+            <p>{project.summary}</p>
+            <div className="tag-list" aria-label={`${project.title} tags`}>
+              {project.tags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+            <Link className="text-action" to={getProjectDetailPath(project.id)}>
+              View project
+            </Link>
+          </article>
+        ))}
       </div>
     </section>
   );

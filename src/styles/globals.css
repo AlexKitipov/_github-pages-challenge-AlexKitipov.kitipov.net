@@ -216,3 +216,119 @@ h1 {
   display: inline-block;
   margin-top: 1.5rem;
 }
+
+.section-stack {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.info-panel {
+  background: rgba(15, 23, 42, 0.46);
+  border: 1px solid rgba(226, 232, 240, 0.18);
+  border-radius: 1.1rem;
+  padding: 1.2rem;
+}
+
+.info-panel h2 {
+  color: #bfdbfe;
+  font-size: 1.2rem;
+  margin: 0 0 0.75rem;
+}
+
+.info-panel p {
+  color: #dbeafe;
+  margin: 0 0 0.75rem;
+}
+
+.info-panel p:last-child {
+  margin-bottom: 0;
+}
+
+.info-panel a {
+  color: #93c5fd;
+  font-weight: 800;
+}
+
+.info-panel ul,
+.info-panel ol {
+  color: #dbeafe;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.info-panel li + li {
+  margin-top: 0.45rem;
+}
+
+.status-label {
+  color: #93c5fd !important;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tag-list span,
+.skill-list span {
+  background: rgba(96, 165, 250, 0.16);
+  border: 1px solid rgba(147, 197, 253, 0.28);
+  border-radius: 999px;
+  color: #dbeafe;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0.25rem 0.6rem;
+}
+
+.skill-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.skill-list > div {
+  border-top: 1px solid rgba(226, 232, 240, 0.14);
+  display: grid;
+  gap: 0.4rem;
+  padding-top: 0.85rem;
+}
+
+.skill-list strong {
+  color: #ffffff;
+}
+
+.content-list a small {
+  color: #bfdbfe;
+  display: block;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.compact-list {
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 860px) {
+  .page-card {
+    max-width: 920px;
+    width: min(100%, 920px);
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
